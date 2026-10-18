@@ -1,0 +1,54 @@
+HEIZUNGSMONITOR – CONTAINER-VORSCHAU 2026-10-18
+
+Inoffizielle Drittsoftware für Siemens LOGO!, kein Siemens-Produkt.
+Dies ist ein Quellcode-/Container-Paket, KEIN Windows-Installer.
+Die Versionsbezeichnung bezeichnet diese Verpackung, keine freigegebene Produktversion.
+
+VORAUSSETZUNGEN
+Docker mit Compose oder QNAP Container Station mit Compose-Unterstützung,
+Internet zum erstmaligen Laden des Python-3.12-Alpine-Images, Browser und
+eine vom Container erreichbare LOGO! mit passender Webschnittstelle.
+Konkrete LOGO!-Modelle/Firmware und QNAP-Versionen sind noch zu testen.
+Die Implementierung enthält LOGO!-8- und LOGO!-9-Zugriffswege; das ist keine
+Garantie für jedes Modell. Die Anbindung erfolgt über Webschnittstellen.
+Es wird keine universelle Modbus-Kompatibilität zugesichert.
+
+INSTALLATION AUF EINEM NEUEN ZIELSYSTEM
+1. ZIP vollständig in einen eigenen Programmordner entpacken.
+2. QNAP: In docker-compose.qnap.yml unter source den absoluten NAS-Pfad
+   dieses Ordners eintragen (mit server.py und static darin).
+   Windows-Laufwerksbuchstaben wie Y: gelten nicht auf der NAS.
+3. In Container Station eine NEUE Anwendung mit eigenem Namen erstellen
+   und die angepasste docker-compose.qnap.yml verwenden.
+   Keine bestehende Heizungs-Anwendung löschen oder ersetzen.
+   Port 8092 muss frei sein; sonst nur die linke Portnummer anpassen.
+   Alternativ auf einem Docker-Rechner im Paketordner:
+   docker compose -p heizungsmonitor-demo up -d --build
+4. Im lokalen Browser http://<SERVER-ADRESSE>:8092 öffnen.
+5. Eigenes Anzeigen-Passwort festlegen, eigene LOGO!-Adresse sowie
+   deren Web-Zugangsdaten eingeben und Verbindung prüfen.
+6. Eingänge, Adressen, Skalierung und Einheiten an das eigene LOGO!-Programm
+   anpassen. Voreingestellte Messadressen sind nur Beispiele.
+7. Erst lesend prüfen. Die Anwendung enthält auch Schreibfunktionen für
+   Sollwerte. Diese erst nach Prüfung der Zuordnung an der eigenen Anlage nutzen.
+
+BETRIEB
+Nur im vertrauenswürdigen lokalen Netzwerk betreiben; Port 8092 nicht
+am Router freigeben. Die Download-Webseite läuft separat ohne Heizungszugriff.
+Einstellungen und LOGO!-Zugangsdaten werden im Datenvolume gespeichert.
+Dieses Volume, Backups, Einstellungen und Messarchive NICHT weitergeben.
+Das Löschen des Datenvolumes entfernt die Einrichtung und Aufzeichnungen.
+Optionales Wetter nutzt Open-Meteo und sendet den eingestellten Ort bzw.
+die Koordinaten an dessen Dienste. Wetter lässt sich ohne Ortsangabe deaktivieren.
+
+PRÜFSTATUS
+Bereinigte Kopie für eine Testinstallation. Kein vollständiges Sicherheits-Audit.
+Kein Docker-/QNAP-Integrationstest und keine Prüfung an einer realen LOGO!
+auf dem Erstellungsrechner. Siehe den separaten Prüfbericht der Webseite.
+Vor öffentlicher Freigabe auf einem getrennten Zielsystem testen.
+
+RECHTE UND VERÖFFENTLICHUNG
+Eine öffentliche Nutzungslizenz ist vom Rechteinhaber noch festzulegen.
+Dieses Vorbereitungspaket legt keine Open-Source-Lizenz fest.
+Siemens und LOGO! werden nur zur Beschreibung der vorgesehenen Anbindung
+genannt. Keine Verbindung, Zertifizierung oder Empfehlung durch Siemens.
