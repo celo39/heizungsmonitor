@@ -8,6 +8,8 @@ Das Programm selbst läuft nach dem Download bei jedem Nutzer zu Hause, auf eine
 
 - `index.html`, `fr.html`, `en.html` — die Seite auf Deutsch, Französisch und Englisch
 - `downloads/` — Container-ZIP, deutsche Anleitung und SHA-256-Prüfsumme
+- Download-Zähler über das GitHub-Release `v2026-10-18`
+- Bewertungen als öffentliche GitHub-Meldungen mit dem Formular `bewertung`
 - `images/` — Beispielaufnahmen, private Angaben sind geschwärzt
 
 Eine Nutzungslizenz und Kontaktangaben sind noch nicht festgelegt. Das Programm wird ohne Garantie bereitgestellt.

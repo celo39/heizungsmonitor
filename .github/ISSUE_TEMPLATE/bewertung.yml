@@ -1,0 +1,30 @@
+name: Bewertung
+description: Öffentliche Bewertung des Heizungsmonitors mit 1 bis 5 Sternen.
+title: "Bewertung"
+labels: ["bewertung"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Eine Bewertung pro GitHub-Konto. Sie erscheint öffentlich auf der Webseite. Keine Adressen, Passwörter oder Standortdaten eintragen.
+  - type: dropdown
+    id: sterne
+    attributes:
+      label: Sterne
+      description: 5 ist die beste Bewertung.
+      options:
+        - "5"
+        - "4"
+        - "3"
+        - "2"
+        - "1"
+    validations:
+      required: true
+  - type: textarea
+    id: erfahrung
+    attributes:
+      label: Erfahrung
+      description: Was läuft gut, was fehlt?
+      placeholder: Kurzer Erfahrungsbericht
+    validations:
+      required: true
